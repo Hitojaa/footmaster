@@ -1,0 +1,343 @@
+export type QuizCategory = 'joueurs' | 'clubs' | 'competitions' | 'histoire' | 'coachs';
+export type Difficulty = 'facile' | 'moyen' | 'difficile';
+
+export interface QuizQuestion {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
+  emoji: string;
+  difficulty: Difficulty;
+}
+
+export interface Quiz {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: QuizCategory;
+  emoji: string;
+  bgGradient: string;
+  difficulty: Difficulty;
+  timePerQuestion: number;
+  questions: QuizQuestion[];
+  reward: string;
+  badge: string;
+}
+
+export const quizzes: Quiz[] = [
+  {
+    id: 'legendes',
+    title: 'Quiz Légendes',
+    subtitle: 'Teste tes connaissances sur les plus grands joueurs de l\'histoire',
+    category: 'joueurs',
+    emoji: '🐐',
+    bgGradient: 'from-yellow-900 via-amber-800 to-orange-800',
+    difficulty: 'moyen',
+    timePerQuestion: 20,
+    badge: '🏅 Badge Historien',
+    reward: '500 XP',
+    questions: [
+      {
+        id: 'l1',
+        question: 'Combien de Ballons d\'Or Lionel Messi a-t-il remporté ?',
+        options: ['5', '6', '7', '8'],
+        correctAnswer: 3,
+        explanation: 'Messi a remporté 8 Ballons d\'Or (2009, 2010, 2011, 2012, 2019, 2021, 2023), un record absolu.',
+        emoji: '🏅',
+        difficulty: 'facile',
+      },
+      {
+        id: 'l2',
+        question: 'Quel est le surnom de Ronaldo Nazário ?',
+        options: ['Le Phénomène', 'O Rei', 'CR7', 'La Pulga'],
+        correctAnswer: 0,
+        explanation: '"O Fenômeno" (Le Phénomène) est le surnom de Ronaldo Nazário, en référence à ses capacités physiques et techniques hors du commun.',
+        emoji: '🌪️',
+        difficulty: 'facile',
+      },
+      {
+        id: 'l3',
+        question: 'En quelle année Zinédine Zidane a-t-il remporté la Coupe du Monde ?',
+        options: ['1994', '1996', '1998', '2000'],
+        correctAnswer: 2,
+        explanation: 'La France a remporté la Coupe du Monde 1998 organisée sur son sol. Zidane a marqué deux buts de la tête en finale contre le Brésil (3-0).',
+        emoji: '🇫🇷',
+        difficulty: 'facile',
+      },
+      {
+        id: 'l4',
+        question: 'Combien de Coupes du Monde Pelé a-t-il remportées ?',
+        options: ['1', '2', '3', '4'],
+        correctAnswer: 2,
+        explanation: 'Pelé a remporté 3 Coupes du Monde (1958, 1962, 1970) — un record qu\'aucun autre joueur n\'a égalé.',
+        emoji: '⭐',
+        difficulty: 'facile',
+      },
+      {
+        id: 'l5',
+        question: 'Quel joueur a marqué un hat-trick en finale de la Coupe du Monde 2022 ?',
+        options: ['Lionel Messi', 'Kylian Mbappé', 'Olivier Giroud', 'Antoine Griezmann'],
+        correctAnswer: 1,
+        explanation: 'Kylian Mbappé a marqué 3 buts en finale (74e, 80e, 118e minutes) — la France perd quand même aux tirs au but contre l\'Argentine.',
+        emoji: '⚡',
+        difficulty: 'moyen',
+      },
+      {
+        id: 'l6',
+        question: 'Quel est le record de buts en une saison de calendrier de Messi ?',
+        options: ['73 buts', '83 buts', '91 buts', '100 buts'],
+        correctAnswer: 2,
+        explanation: 'Messi a marqué 91 buts en 2012 (année civile), pulvérisant l\'ancien record de Gerd Müller (85 buts en 1972). Un record qui semble imbattable.',
+        emoji: '🎯',
+        difficulty: 'difficile',
+      },
+      {
+        id: 'l7',
+        question: 'Dans quel club Zidane a-t-il fait ses débuts professionnels ?',
+        options: ['Olympique de Marseille', 'Girondins de Bordeaux', 'AS Cannes', 'Juventus'],
+        correctAnswer: 2,
+        explanation: 'Zidane a fait ses débuts à l\'AS Cannes à 16 ans en 1988, avant de rejoindre Bordeaux puis la Juventus et le Real Madrid.',
+        emoji: '🎭',
+        difficulty: 'difficile',
+      },
+      {
+        id: 'l8',
+        question: 'Quelle est la vitesse de pointe approximative de Kylian Mbappé ?',
+        options: ['30 km/h', '33 km/h', '36 km/h', '39 km/h'],
+        correctAnswer: 2,
+        explanation: 'Mbappé a été mesuré à plus de 36 km/h sur le terrain, ce qui est comparable à la vitesse de sprint d\'un athlète de haut niveau.',
+        emoji: '⚡',
+        difficulty: 'moyen',
+      },
+      {
+        id: 'l9',
+        question: 'Combien de buts Cristiano Ronaldo a-t-il marqués en Ligue des Champions ?',
+        options: ['100 buts', '120 buts', '140 buts', '160 buts'],
+        correctAnswer: 2,
+        explanation: 'Cristiano Ronaldo est le meilleur buteur de l\'histoire de la Ligue des Champions avec 140 buts, loin devant tous les autres.',
+        emoji: '👑',
+        difficulty: 'moyen',
+      },
+      {
+        id: 'l10',
+        question: 'Quel record Erling Haaland a-t-il établi en Premier League en 2022-23 ?',
+        options: ['35 buts', '42 buts', '48 buts', '52 buts'],
+        correctAnswer: 3,
+        explanation: 'Haaland a inscrit 52 buts en Premier League en 2022-23, pulvérisant le record d\'Andy Cole (34 buts, 1993-94) et devenant le meilleur buteur de l\'histoire de la compétition en une saison.',
+        emoji: '🤖',
+        difficulty: 'difficile',
+      },
+    ],
+  },
+  {
+    id: 'coupe-du-monde',
+    title: 'Quiz Coupe du Monde',
+    subtitle: 'Maîtrises-tu l\'histoire du plus grand tournoi du monde ?',
+    category: 'competitions',
+    emoji: '🌍',
+    bgGradient: 'from-green-900 via-teal-800 to-emerald-800',
+    difficulty: 'moyen',
+    timePerQuestion: 20,
+    badge: '🌍 Badge Mondialiste',
+    reward: '600 XP',
+    questions: [
+      {
+        id: 'cdm1',
+        question: 'Quelle nation a remporté le plus de Coupes du Monde ?',
+        options: ['Allemagne', 'Italie', 'Brésil', 'Argentine'],
+        correctAnswer: 2,
+        explanation: 'Le Brésil est la nation la plus titrée avec 5 titres (1958, 1962, 1970, 1994, 2002). L\'Allemagne et l\'Italie suivent avec 4 titres chacune.',
+        emoji: '🇧🇷',
+        difficulty: 'facile',
+      },
+      {
+        id: 'cdm2',
+        question: 'Où s\'est jouée la première Coupe du Monde en 1930 ?',
+        options: ['Brésil', 'Argentine', 'Uruguay', 'Italie'],
+        correctAnswer: 2,
+        explanation: 'L\'Uruguay a organisé et remporté la première Coupe du Monde en 1930. L\'Argentine fut finaliste, battue 4-2 en finale.',
+        emoji: '🇺🇾',
+        difficulty: 'moyen',
+      },
+      {
+        id: 'cdm3',
+        question: 'Qui est le meilleur buteur de l\'histoire de la Coupe du Monde ?',
+        options: ['Ronaldo Nazário', 'Just Fontaine', 'Miroslav Klose', 'Pelé'],
+        correctAnswer: 2,
+        explanation: 'Miroslav Klose (Allemagne) est le meilleur buteur de l\'histoire de la Coupe du Monde avec 16 buts (2002, 2006, 2010, 2014).',
+        emoji: '🇩🇪',
+        difficulty: 'moyen',
+      },
+      {
+        id: 'cdm4',
+        question: 'Quel pays a réalisé le "Miracle de Berne" en 1954 ?',
+        options: ['Hongrie', 'Allemagne de l\'Ouest', 'France', 'Yougoslavie'],
+        correctAnswer: 1,
+        explanation: 'L\'Allemagne de l\'Ouest a battu la Hongrie 3-2 en finale 1954 alors que la Hongrie était favorite et n\'avait pas perdu depuis 4 ans.',
+        emoji: '🇩🇪',
+        difficulty: 'difficile',
+      },
+      {
+        id: 'cdm5',
+        question: 'Combien de fois la France a-t-elle remporté la Coupe du Monde ?',
+        options: ['1', '2', '3', '4'],
+        correctAnswer: 1,
+        explanation: 'La France a remporté 2 Coupes du Monde : 1998 sur son sol (3-0 vs Brésil) et 2018 en Russie (4-2 vs Croatie).',
+        emoji: '🇫🇷',
+        difficulty: 'facile',
+      },
+      {
+        id: 'cdm6',
+        question: 'Quelle est la plus grande victoire de l\'histoire de la Coupe du Monde ?',
+        options: ['Hongrie 10-1 El Salvador (1982)', 'Allemagne 8-0 Arabie Saoudite (2002)', 'Yougoslavie 9-0 Zaïre (1974)', 'Allemagne 7-1 Brésil (2014)'],
+        correctAnswer: 0,
+        explanation: 'La Hongrie a battu El Salvador 10-1 en 1982. C\'est la victoire la plus large de l\'histoire de la Coupe du Monde en phase de groupes.',
+        emoji: '😱',
+        difficulty: 'difficile',
+      },
+      {
+        id: 'cdm7',
+        question: 'Quel joueur a été sacré Meilleur Joueur du Mondial 2022 ?',
+        options: ['Kylian Mbappé', 'Luka Modric', 'Lionel Messi', 'Emiliano Martinez'],
+        correctAnswer: 2,
+        explanation: 'Lionel Messi a remporté le Ballon d\'Or du Mondial 2022 — sa deuxième fois (après 2014) — en plus du titre de champion du monde avec l\'Argentine.',
+        emoji: '🐐',
+        difficulty: 'facile',
+      },
+      {
+        id: 'cdm8',
+        question: 'Quel est le stade qui a accueilli la finale du Mondial 2022 ?',
+        options: ['Al Bayt Stadium', 'Ahmad Bin Ali Stadium', 'Al Janoub Stadium', 'Lusail Stadium'],
+        correctAnswer: 3,
+        explanation: 'Le Lusail Iconic Stadium (89 000 places) a accueilli la finale Argentine-France le 18 décembre 2022. C\'est le plus grand stade du Qatar.',
+        emoji: '🏟️',
+        difficulty: 'difficile',
+      },
+      {
+        id: 'cdm9',
+        question: 'La "Manita" (5-0) de l\'Espagne vs quelle nation en 2010 marque les demi-finales ?',
+        options: ['Allemagne', 'Paraguay', 'Uruguay', 'Brésil'],
+        correctAnswer: 0,
+        explanation: 'L\'Espagne a battu l\'Allemagne 1-0 en demi-finale du Mondial 2010 — le seul but de Puyol de la tête. L\'Espagne a ensuite battu les Pays-Bas 1-0 en finale (Torres).',
+        emoji: '🇪🇸',
+        difficulty: 'difficile',
+      },
+      {
+        id: 'cdm10',
+        question: 'Quel entraîneur a mené le Brésil à la Coupe du Monde 1970 (considérée comme le meilleur Brésil de l\'histoire) ?',
+        options: ['Mário Zagallo', 'Telê Santana', 'Luiz Felipe Scolari', 'Vicente Feola'],
+        correctAnswer: 0,
+        explanation: 'Mário Zagallo était l\'entraîneur du Brésil en 1970. Il avait également joué (et gagné) les éditions 1958 et 1962 — devenant le premier homme à gagner la CdM comme joueur et entraîneur.',
+        emoji: '🇧🇷',
+        difficulty: 'difficile',
+      },
+    ],
+  },
+  {
+    id: 'ldc',
+    title: 'Quiz Ligue des Champions',
+    subtitle: 'L\'hymne résonne — es-tu prêt à affronter la plus grande compétition de clubs ?',
+    category: 'competitions',
+    emoji: '⭐',
+    bgGradient: 'from-blue-900 via-indigo-800 to-purple-900',
+    difficulty: 'difficile',
+    timePerQuestion: 20,
+    badge: '⭐ Badge Expert LDC',
+    reward: '800 XP',
+    questions: [
+      {
+        id: 'ldc1',
+        question: 'Quel club a remporté le plus de Ligues des Champions ?',
+        options: ['Bayern Munich', 'AC Milan', 'Liverpool', 'Real Madrid'],
+        correctAnswer: 3,
+        explanation: 'Le Real Madrid est le club le plus titré de la LDC avec 15 titres (1956, 1957, 1958, 1959, 1960, 1966, 1998, 2000, 2002, 2014, 2016, 2017, 2018, 2022, 2024).',
+        emoji: '👑',
+        difficulty: 'facile',
+      },
+      {
+        id: 'ldc2',
+        question: 'En quelle année a eu lieu le "Miracle d\'Istanbul" (remontée de Liverpool vs AC Milan) ?',
+        options: ['2003', '2005', '2007', '2009'],
+        correctAnswer: 1,
+        explanation: 'Le "Miracle d\'Istanbul" s\'est produit le 25 mai 2005. Liverpool, mené 3-0 à la mi-temps, a égalisé avant de gagner aux tirs au but.',
+        emoji: '🔴',
+        difficulty: 'facile',
+      },
+      {
+        id: 'ldc3',
+        question: 'Qui a marqué le but de la victoire de Man United en 1999 dans le temps additionnel ?',
+        options: ['Andy Cole', 'Ole Gunnar Solskjaer', 'Teddy Sheringham', 'Peter Schmeichel'],
+        correctAnswer: 1,
+        explanation: 'Ole Gunnar Solskjaer a marqué à la 93e minute pour offrir à Man United la LDC 1999 contre le Bayern Munich (2-1). Sheringham avait égalisé à la 91e.',
+        emoji: '😱',
+        difficulty: 'moyen',
+      },
+      {
+        id: 'ldc4',
+        question: 'Quelle est la volée iconique de Zidane en finale 2002 contre le Bayer Leverkusen ?',
+        options: ['Du pied droit de l\'intérieur', 'Du pied gauche à la retourné', 'Du pied gauche en volée de loin', 'Tête piquée'],
+        correctAnswer: 2,
+        explanation: 'Zidane a marqué d\'une volée sublime du pied gauche à 25 mètres — considérée comme l\'un des plus beaux buts de l\'histoire de la LDC. Et Zidane est droitier.',
+        emoji: '🎨',
+        difficulty: 'moyen',
+      },
+      {
+        id: 'ldc5',
+        question: 'Le Barça a-t-il réalisé "La Remontada" contre quelle équipe en 2017 ?',
+        options: ['Chelsea', 'Manchester City', 'PSG', 'Arsenal'],
+        correctAnswer: 2,
+        explanation: 'Le FC Barcelone a remporté 6-1 le match retour contre le PSG après avoir perdu 4-0 à l\'aller. Sergi Roberto a marqué le but de la qualification à la 95e minute.',
+        emoji: '🔥',
+        difficulty: 'facile',
+      },
+      {
+        id: 'ldc6',
+        question: 'Combien de fois Cristiano Ronaldo a-t-il remporté la LDC ?',
+        options: ['3', '4', '5', '6'],
+        correctAnswer: 2,
+        explanation: 'CR7 a remporté 5 LDC : 1 avec Manchester United (2008) et 4 avec le Real Madrid (2014, 2016, 2017, 2018) — un record personnel.',
+        emoji: '👑',
+        difficulty: 'moyen',
+      },
+      {
+        id: 'ldc7',
+        question: 'Quelle équipe a Chelsea battue dans leur propre stade en 2012 ?',
+        options: ['FC Barcelone', 'Real Madrid', 'Bayern Munich', 'Juventus'],
+        correctAnswer: 2,
+        explanation: 'Chelsea a battu le Bayern Munich aux tirs au but dans l\'Allianz Arena de Munich en 2012 — victoire impensable que Didier Drogba a portée avec un but égalisateur tardif.',
+        emoji: '🔵',
+        difficulty: 'difficile',
+      },
+      {
+        id: 'ldc8',
+        question: 'Quel attaquant a marqué 5 buts en 21 minutes pour Dortmund en LDC ?',
+        options: ['Robert Lewandowski', 'Pierre-Emerick Aubameyang', 'Erling Haaland', 'Marco Reus'],
+        correctAnswer: 2,
+        explanation: 'Haaland a marqué 5 buts en 21 minutes en entrant en jeu contre Séville lors de la LDC 2020-21 — une performance extraordinaire pour un joueur de 20 ans.',
+        emoji: '💥',
+        difficulty: 'difficile',
+      },
+      {
+        id: 'ldc9',
+        question: 'En quelle année l\'Ajax a-t-il remporté la Coupe des Clubs Champions pour la première fois ?',
+        options: ['1967', '1969', '1971', '1973'],
+        correctAnswer: 2,
+        explanation: 'L\'Ajax d\'Amsterdam a remporté la Coupe des clubs champions pour la première fois en 1971, début de son triplé historique (1971, 1972, 1973) sous la direction de Stefan Kovacs.',
+        emoji: '🇳🇱',
+        difficulty: 'difficile',
+      },
+      {
+        id: 'ldc10',
+        question: 'Quelle est la victoire la plus large de l\'histoire de la LDC ?',
+        options: ['Real Madrid 8-0 Malmö', 'Liverpool 8-0 Besiktas', 'Borussia Dortmund 8-4 Legia Warszawa', 'Bayern Munich 8-2 Barcelone'],
+        correctAnswer: 3,
+        explanation: 'Le Bayern Munich a battu le FC Barcelone 8-2 le 14 août 2020 lors d\'un quart de finale en match unique à Lisbonne — une humiliation historique pour le Barça.',
+        emoji: '😱',
+        difficulty: 'difficile',
+      },
+    ],
+  },
+];
+
+export const getQuizById = (id: string) => quizzes.find(q => q.id === id);

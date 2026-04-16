@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #0a0e1a;
+  --bg-card: #111827;
+  --green: #00e676;
+  --gold: #ffd700;
+  --red: #ff1744;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-dark);
+  color: white;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+::-webkit-scrollbar-thumb {
+  background: #00e676;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00b248;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(5deg); }
+  66% { transform: translateY(-6px) rotate(-3deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 230, 118, 0.3), 0 0 30px rgba(0, 230, 118, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(0, 230, 118, 0.6), 0 0 60px rgba(0, 230, 118, 0.2); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin-ball {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: var(--target-width); }
+}
+
+/* Utility classes */
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out both;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+/* Stagger animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text-green {
+  background: linear-gradient(135deg, #00e676, #00b248);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-multi {
+  background: linear-gradient(135deg, #00e676, #00b4ff, #ff00aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 230, 118, 0.1);
+}
+
+/* Neon border */
+.neon-border {
+  box-shadow: 0 0 10px rgba(0, 230, 118, 0.3), inset 0 0 10px rgba(0, 230, 118, 0.05);
+}
+
+.neon-border:hover {
+  box-shadow: 0 0 20px rgba(0, 230, 118, 0.5), inset 0 0 20px rgba(0, 230, 118, 0.1);
+}
+
+/* Football field pattern */
+.field-pattern {
+  background-image:
+    linear-gradient(rgba(0, 230, 118, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 230, 118, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Pitch lines decoration */
+.pitch-hero {
+  background: radial-gradient(ellipse at 50% 100%, rgba(0, 230, 118, 0.08) 0%, transparent 70%),
+    linear-gradient(180deg, #0a0e1a 0%, #0d1a12 50%, #0a0e1a 100%);
+}
+
+/* XP Bar animation */
+.xp-bar-fill {
+  background: linear-gradient(90deg, #00e676, #00b4ff, #00e676);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Correct/Wrong answer feedback */
+.answer-correct {
+  background: rgba(0, 230, 118, 0.2) !important;
+  border-color: #00e676 !important;
+  box-shadow: 0 0 20px rgba(0, 230, 118, 0.3) !important;
+}
+
+.answer-wrong {
+  background: rgba(255, 23, 68, 0.2) !important;
+  border-color: #ff1744 !important;
+  box-shadow: 0 0 20px rgba(255, 23, 68, 0.3) !important;
+}
+
+/* Timer animation */
+@keyframes timer-shrink {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+.timer-bar {
+  animation: timer-shrink linear both;
+}
+
+/* Badge glow */
+.badge-glow {
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+
+/* Responsive font sizes */
+@layer utilities {
+  .text-fluid-xl {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+  }
+  .text-fluid-2xl {
+    font-size: clamp(2rem, 6vw, 4.5rem);
+  }
+}
